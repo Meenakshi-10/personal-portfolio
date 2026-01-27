@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meenakshi Suresh — Portfolio</title>
+  <meta name="description" content="Portfolio of Meenakshi Suresh — ML & Software Engineering projects, resume and contact." />
+  <meta property="og:title" content="Meenakshi Suresh — Portfolio" />
+  <meta property="og:description" content="Machine learning and software engineering projects, résumé highlights and contact information." />
+  <style>
+    :root{--accent:#0366d6;--muted:#6b7280;--card:#f7f9fc}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;max-width:980px;margin:3rem auto;padding:1.25rem;color:#0f172a;line-height:1.5}
+    header{display:flex;gap:1.25rem;align-items:center}
+    img.avatar{width:96px;height:96px;border-radius:14px;object-fit:cover;border:2px solid rgba(2,6,23,0.06)}
+    h1{margin:0;font-size:1.6rem}
+    h2{margin-top:1.5rem;margin-bottom:.5rem}
+    p.lead{margin:0;color:var(--muted)}
+    .meta{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:.5rem}
+    a.link{color:var(--accent);text-decoration:none}
+    section.card{background:var(--card);padding:1rem;border-radius:10px;margin-top:1rem}
+    ul.projects{list-style:none;padding-left:0;margin:0}
+    ul.projects li{padding:.6rem 0;border-bottom:1px solid rgba(2,6,23,0.04)}
+    ul.projects li:last-child{border-bottom:0}
+    .tech{font-size:.85rem;color:var(--muted)}
+    .small{font-size:.9rem;color:var(--muted)}
+    footer{margin-top:2rem;color:var(--muted);font-size:.9rem;text-align:center}
+    .contact a{margin-right:1rem}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:1.25rem}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}}
+    .side{position:sticky;top:1.25rem}
+    .pill{display:inline-block;background:white;border-radius:999px;padding:.25rem .6rem;border:1px solid rgba(2,6,23,0.06);font-size:.85rem;margin-right:.5rem}
+  </style>
+</head>
+<body>
+  <header>
+    <img class="avatar" src="https://github.com/Meenakshi-10.png" alt="Meenakshi avatar" />
+    <div>
+      <h1>Meenakshi Suresh</h1>
+      <p class="lead">Masters in Computer Science — University of Illinois Urbana-Champaign • Software & ML engineer</p>
+      <div class="meta small contact">
+        <a class="link" href="mailto:meenakshisuresh112@gmail.com">meenakshisuresh112@gmail.com</a>
+        <a class="link" href="https://github.com/Meenakshi-10" target="_blank" rel="noopener">GitHub</a>
+        <!-- Replace the URL below with your actual LinkedIn profile -->
+        <a class="link" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <main>
+      <section id="about" class="card" aria-labelledby="about-heading">
+        <h2 id="about-heading">About</h2>
+        <p>I build developer-facing components, backend services, and ML-powered features that make large-document experiences and data-driven workflows more useful and accessible. I have experience designing reusable UI libraries, scalable backend APIs, and ML/LLM-based summarization and retrieval systems.</p>
+        <p class="small">Open to opportunities and collaborations. Email me to connect.</p>
+      </section>
+
+      <section id="education" class="card" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <p><strong>University of Illinois Urbana-Champaign</strong> — Masters in Computer Science (MCS)</p>
+        <p><strong>PES University</strong> — Bachelor of Technology, Computer Science (GPA: 8.64/10)</p>
+        <p class="small">Relevant coursework: Storage Systems, Advanced Information Retrieval, Applied Machine Learning</p>
+      </section>
+
+      <section id="experience" class="card" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+
+        <h3>Senior Associate, Data Science — AT&amp;T, Chief Data Office</h3>
+        <p class="small">Jun 2023 – Jan 2026 — Bangalore, Karnataka</p>
+        <ul>
+          <li>Designed and published a reusable NPM library for a React data table with advanced filtering, sorting, and pagination—adopted across multiple sister applications to standardize UI and reduce development effort.</li>
+          <li>Implemented backend services using PostgreSQL and MongoDB, integrated APIs, and instrumented code with OpenTelemetry for improved observability.</li>
+          <li>Built LangGraph-based fraud analysis tooling and LangChain/LLM orchestration for enterprise chatbot and document ingestion pipelines.</li>
+          <li>Developed an AI-powered podcast-style document-to-conversation feature and iteratively improved a document summarization module using map-reduce and multi-prompt strategies.</li>
+          <li>Integrated OpenAI and open-source LLMs (LLaMA) via Triton Inference Server and built scalable inference APIs.</li>
+        </ul>
+
+        <h3>Technical Intern — AT&amp;T, Chief Data Office</h3>
+        <p class="small">Jan 2023 – Jun 2023 — Bangalore, Karnataka</p>
+        <ul>
+          <li>Built a meeting insights module with speaker diarization and speaker-annotated transcription, followed by automatic transcript summarization.</li>
+          <li>Performed topic modeling using BERTopic to surface customer issues regarding missing promotional offers.</li>
+        </ul>
+
+        <h3>Teaching Assistant — PES University</h3>
+        <p class="small">Jan 2023 – Jun 2023 — Bangalore, Karnataka</p>
+        <ul>
+          <li>Prepared coding assignments for Design and Analysis of Algorithms course.</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="card" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+
+        <h3>Machine Learning & AI</h3>
+        <ul class="projects">
+          <li>
+            <strong>Visualizing Chemistry Experiments using NLP and Computer Graphics (IEEE)</strong>
+            <div class="small tech">Python · Flask · React</div>
+            <p>Presented at the 2nd International Conference for Innovation in Technology (INOCON), 2023. Tool transforms educational text into interactive visual tutorials using NLP and computer graphics.</p>
+          </li>
+
+          <li>
+            <strong>Realtime Sentiment Analysis</strong>
+            <div class="small tech">Python · Spark Streaming · Spark NLP</div>
+            <p>Spark streaming pipeline for real-time tweet classification and clustering. Includes preprocessing with Spark NLP and model training with hyperparameter tuning.</p>
+          </li>
+
+          <li>
+            <strong>Covering the Main Ideas: Paper Summarization Using K-Means Clustering</strong>
+            <div class="small tech">Python · scikit-learn · NLTK · unsupervised learning</div>
+            <p>Grouped sentences or passages into clusters using K-Means to identify core topics and extract representative sentences as a concise summary. Useful as a lightweight summarization approach for scientific papers where labeled summaries are scarce.</p>
+          </li>
+        </ul>
+
+        <h3 style="margin-top:1rem">Software Engineering</h3>
+        <ul class="projects">
+          <li>
+            <strong>Reusable React Data Table (NPM library)</strong>
+            <div class="small tech">TypeScript · React · NPM</div>
+            <p>Published a reusable table component providing filtering, sorting, and pagination. Adopted across multiple internal applications to standardize UI behavior and reduce duplicate effort.</p>
+          </li>
+
+          <li>
+            <strong>GradNotif</strong>
+            <div class="small tech">Go</div>
+            <p>Go-based Reddit scraper that monitors r/gradadmissions and r/mscs, filters posts for target university mentions, and pushes real-time notifications to a phone. Implemented concurrent scraping and robust filtering logic.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="skills" class="card" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <div class="pill">Python</div> <div class="pill">C/C++</div> <div class="pill">JavaScript/TypeScript</div> <div class="pill">Go</div>
+        <div style="height:.5rem"></div>
+        <div class="small">ML & Data: Pandas, Numpy, NLTK, HuggingFace, LangChain, PyTorch</div>
+        <div class="small">Cloud & Web: Azure services, Flask, FastAPI, React, MongoDB, SQL, Git</div>
+      </section>
+    </main>
+
+    <aside class="side">
+      <section class="card">
+        <h2>Quick Contact</h2>
+        <p class="small">Email: <a class="link" href="mailto:meenakshisuresh112@gmail.com">meenakshisuresh112@gmail.com</a></p>
+        <p class="small">GitHub: <a class="link" href="https://github.com/Meenakshi-10">Meenakshi-10</a></p>
+        <p class="small">LinkedIn: <a class="link" href="#">Link (replace with your profile)</a></p>
+      </section>
+
+      <section class="card" style="margin-top:1rem">
+        <h2>Resume</h2>
+        <p class="small">This page mirrors key résumé highlights. To make edits, update <code>index.html</code> in your repository or send me updates and I can regenerate the page.</p>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© Meenakshi Suresh — Built with ❤️ — <a class="link" href="https://github.com/Meenakshi-10" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+</body>
+</html>
