@@ -32,6 +32,8 @@
     .pills{display:flex;flex-wrap:wrap;margin-top:.5rem}
     .skill-group{margin-top:.75rem}
     .skill-heading{font-weight:600;margin-bottom:.25rem}
+    .btn{display:inline-block;padding:.45rem .75rem;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600}
+    .muted-note{font-size:.9rem;color:var(--muted);margin-top:.5rem}
   </style>
 </head>
 <body>
@@ -172,11 +174,16 @@
         <p class="small">Email: <a class="link" href="mailto:meenakshisuresh112@gmail.com">meenakshisuresh112@gmail.com</a></p>
         <p class="small">GitHub: <a class="link" href="https://github.com/Meenakshi-10">Meenakshi-10</a></p>
         <p class="small">LinkedIn: <a class="link" href="https://www.linkedin.com/in/meenakshi-suresh-6624996a/" target="_blank" rel="noopener">Meenakshi Suresh</a></p>
+        <p style="margin-top:.6rem">
+          <a class="btn" id="resume-link" href="https://drive.google.com/drive/search?q=ML" target="_blank" rel="noopener">View Resume</a>
+        </p>
+        <p class="muted-note">Note: This opens your Google Drive search link — viewers may need to be signed in. For a direct download, upload the PDF to the repo (recommended).</p>
       </section>
 
       <section class="card" style="margin-top:1rem">
         <h2>Resume</h2>
-        <p class="small">This page mirrors key résumé highlights. To make edits, update <code>index.html</code> in your repository or send me updates and I can regenerate the page.</p>
+        <p class="small">You can view my résumé here: <a href="https://drive.google.com/drive/search?q=ML" target="_blank" rel="noopener" class="link">View Resume (Google Drive)</a></p>
+        <p class="muted-note">If you'd like a direct download link, upload the PDF as <code>resume.pdf</code> in the repo root (or in <code>/docs</code> if you publish from there) and I can update the link.</p>
       </section>
     </aside>
   </div>
