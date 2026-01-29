@@ -34,6 +34,45 @@
     .skill-heading{font-weight:600;margin-bottom:.25rem}
     .btn{display:inline-block;padding:.45rem .75rem;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600}
     .muted-note{font-size:.9rem;color:var(--muted);margin-top:.5rem}
+
+    /* Modal / embedded PDF viewer */
+    .modal-overlay{
+      display:none; /* toggled via JS */
+      position:fixed;
+      inset:0;
+      background:rgba(2,6,23,0.6);
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      padding:1rem;
+    }
+    .modal-content{
+      width:100%;
+      max-width:1100px;
+      height:85vh;
+      background:#fff;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(2,6,23,0.4);
+      display:flex;
+      flex-direction:column;
+    }
+    .modal-header{
+      display:flex;
+      justify-content:flex-end;
+      padding:.5rem;
+      background:linear-gradient(180deg,rgba(255,255,255,0.9),#fff);
+      border-bottom:1px solid rgba(2,6,23,0.06);
+    }
+    .modal-close{
+      background:transparent;border:0;font-size:1.25rem;cursor:pointer;padding:.25rem .5rem;color:var(--muted)
+    }
+    .modal-frame{
+      flex:1;border:0;width:100%;
+    }
+    @media (max-width:520px){
+      .modal-content{height:92vh}
+    }
   </style>
 </head>
 <body>
@@ -175,21 +214,71 @@
         <p class="small">GitHub: <a class="link" href="https://github.com/Meenakshi-10">Meenakshi-10</a></p>
         <p class="small">LinkedIn: <a class="link" href="https://www.linkedin.com/in/meenakshi-suresh-6624996a/" target="_blank" rel="noopener">Meenakshi Suresh</a></p>
         <p style="margin-top:.6rem">
-          <a class="btn" id="resume-link" href="https://raw.githubusercontent.com/Meenakshi-10/personal-portfolio/main/Meenakshi%20Suresh%20Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+          <!-- opens embedded modal viewer -->
+          <button class="btn" id="resume-open-btn" type="button" aria-haspopup="dialog">View Resume</button>
         </p>
-        <p class="muted-note">Note: This opens the uploaded PDF directly in the browser.</p>
+        <p class="muted-note">Note: the resume opens in an embedded viewer. If a browser forces download, use the raw link from the Resume section below.</p>
       </section>
 
       <section class="card" style="margin-top:1rem">
         <h2>Resume</h2>
-        <p class="small">You can view my résumé here: <a href="https://raw.githubusercontent.com/Meenakshi-10/personal-portfolio/main/Meenakshi%20Suresh%20Resume.pdf" target="_blank" rel="noopener" class="link">View Resume (PDF)</a></p>
-        <p class="muted-note">If you'd like the file renamed (e.g., to resume.pdf) for a cleaner URL, I can rename it and update the link.</p>
+        <p class="small">You can view my résumé here: <a id="resume-raw-link" href="https://raw.githubusercontent.com/Meenakshi-10/personal-portfolio/main/Meenakshi%20Suresh%20Resume.pdf" target="_blank" rel="noopener" class="link">View Resume (PDF)</a></p>
+        <p class="muted-note">If you'd like the file renamed (e.g., to <code>resume.pdf</code>) for a cleaner URL, I can rename it and update the link.</p>
       </section>
     </aside>
+  </div>
+
+  <!-- Modal overlay and iframe -->
+  <div id="resume-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <div class="modal-header">
+        <button class="modal-close" id="resume-close-btn" aria-label="Close resume viewer">&times;</button>
+      </div>
+      <iframe id="resume-iframe" class="modal-frame" src="" frameborder="0" title="Resume PDF viewer"></iframe>
+    </div>
   </div>
 
   <footer>
     <p>© Meenakshi Suresh — Built with ❤️ — <a class="link" href="https://github.com/Meenakshi-10" target="_blank" rel="noopener">GitHub</a></p>
   </footer>
+
+  <script>
+    (function(){
+      const openBtn = document.getElementById('resume-open-btn');
+      const closeBtn = document.getElementById('resume-close-btn');
+      const modal = document.getElementById('resume-modal');
+      const iframe = document.getElementById('resume-iframe');
+      const rawPdf = 'https://raw.githubusercontent.com/Meenakshi-10/personal-portfolio/main/Meenakshi%20Suresh%20Resume.pdf';
+
+      function openModal(){
+        // Set src only when opening to avoid preloading and to ensure close clears it
+        iframe.src = rawPdf;
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden', 'false');
+        // prevent body scroll while open
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal(){
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        iframe.src = ''; // clear src to stop PDF load
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close when clicking outside the modal-content
+      modal.addEventListener('click', function(e){
+        if(e.target === modal) closeModal();
+      });
+
+      // Allow Esc key to close
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+      });
+    })();
+  </script>
 </body>
 </html>
