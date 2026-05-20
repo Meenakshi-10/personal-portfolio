@@ -34,10 +34,13 @@
     .skill-heading{font-weight:600;margin-bottom:.25rem}
     .btn{display:inline-block;padding:.45rem .75rem;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;border:0;cursor:pointer}
     .muted-note{font-size:.9rem;color:var(--muted);margin-top:.5rem}
+    .badge{display:inline-block;font-size:.75rem;font-weight:600;padding:.15rem .5rem;border-radius:999px;margin-left:.4rem;vertical-align:middle}
+    .badge-active{background:#dcfce7;color:#16a34a}
+    .badge-pub{background:#dbeafe;color:#1d4ed8}
 
     /* Modal / embedded PDF viewer */
     .modal-overlay{
-      display:none; /* toggled via JS */
+      display:none;
       position:fixed;
       inset:0;
       background:rgba(2,6,23,0.6);
@@ -80,7 +83,7 @@
     <img class="avatar" src="https://github.com/Meenakshi-10.png" alt="Meenakshi avatar" />
     <div>
       <h1>Meenakshi Suresh</h1>
-      <p class="lead">Masters in Computer Science — University of Illinois Urbana-Champaign • Software & ML engineer</p>
+      <p class="lead">Masters in Computer Science — University of Illinois Urbana-Champaign • Software &amp; ML Engineer</p>
       <div class="meta small contact">
         <a class="link" href="mailto:meenakshisuresh112@gmail.com">meenakshisuresh112@gmail.com</a>
         <a class="link" href="https://github.com/Meenakshi-10" target="_blank" rel="noopener">GitHub</a>
@@ -93,7 +96,7 @@
     <main>
       <section id="about" class="card" aria-labelledby="about-heading">
         <h2 id="about-heading">About</h2>
-        <p>I'm Meenakshi — a Master's student at UIUC and an engineer who bridges research and production. I build systems for applied ML, information retrieval, and scalable backends. I’ve published work on NLP-driven visualizations and deployed enterprise solutions for summarization, LLM orchestration, and fraud detection.</p>
+        <p>I'm Meenakshi — a Master's student at UIUC and an engineer who bridges research and production. I build systems for applied ML, information retrieval, and scalable backends. I've published work on NLP-driven visualizations and deployed enterprise solutions for summarization, LLM orchestration, and fraud detection.</p>
         <p class="small">Open to opportunities and collaborations. <a class="link" href="mailto:meenakshisuresh112@gmail.com">Email me</a>.</p>
       </section>
 
@@ -134,18 +137,40 @@
       <section id="projects" class="card" aria-labelledby="projects-heading">
         <h2 id="projects-heading">Projects</h2>
 
-        <h3>Machine Learning &amp; AI</h3>
+        <h3>Systems &amp; Storage</h3>
         <ul class="projects">
           <li>
-            <strong><a href="https://github.com/Meenakshi-10/K-Means-Summarization/tree/main" target="_blank" rel="noopener">Covering the Main Ideas: Paper Summarization Using K-Means Clustering</a></strong>
-            <div class="small tech">Python · scikit-learn · NLTK · unsupervised learning</div>
-            <p>Grouped sentences or passages into clusters using K-Means to identify core topics and extract representative sentences as a concise summary. Useful as a lightweight summarization approach for scientific papers where labeled summaries are scarce.</p>
+            <strong><a href="https://github.com/oliverrogalski1001/slatedb" target="_blank" rel="noopener">Separating Keys from Values in SlateDB</a></strong>
+            <div class="small tech">Rust · MinIO · LSM-trees · Object Storage</div>
+            <p>Implemented WiscKey-style key-value separation for SlateDB, a cloud-native LSM-tree KV store backed by object storage. Values above a configurable threshold are packed into immutable blob objects (identified by ULIDs), with (blob_id, offset, length) references stored in SSTables. Includes manifest-driven garbage collection via per-blob live-byte counters and a blob cache to mitigate read-path overhead. Reduced write amplification from ~6× to near 1× on write-heavy workloads across value sizes from 1 KiB to 1 MiB, benchmarked on MinIO.</p>
           </li>
 
           <li>
+            <strong><a href="https://github.com/Meenakshi-10/Dynamic-Maintenance-of-Clustering-Based-Vector-Indexes" target="_blank" rel="noopener">Dynamic Maintenance of Clustering-Based Vector Indexes</a></strong>
+            <span class="badge badge-active">Active Research</span>
+            <div class="small tech">C++17 · FAISS · SIFT1M · ANN · IVF</div>
+            <p>Researching how to keep a clustering-based (IVF) vector index accurate as vectors are inserted and deleted, without periodic full rebuilds. Implemented a streaming centroid perturbation policy inside FAISS that nudges cluster centroids incrementally with each mutation. Evaluating recall degradation over varied mutation schedules on SIFT1M (1M × 128-dim vectors) using precomputed ground-truth nearest neighbors. Collaboration with Prof. Ram, UIUC.</p>
+          </li>
+        </ul>
+
+        <h3 style="margin-top:1rem">Information Retrieval</h3>
+        <ul class="projects">
+          <li>
+            <strong><a href="https://github.com/1407arjun/video-rag-search" target="_blank" rel="noopener">Search Engine for Short-Form Video Content</a></strong>
+            <div class="small tech">Python · Qdrant · BM25 · GPT-4.1 · Whisper · Streamlit · FFmpeg</div>
+            <p>End-to-end multimodal search engine for Instagram Reels. A scene-detection frame sampler using Sum of Absolute Differences (SAD) on grayscale frames selects only visually distinct frames for VLM processing. A video ingestion pipeline combines GPT-4.1 for visual description with Whisper for audio transcription, embedding results into a Qdrant vector store. Two-stage retrieval combines cosine-similarity vector search with BM25 re-ranking and a disparity-threshold filter, achieving precision@5 of 0.93 on a curated 50-query evaluation set.</p>
+          </li>
+
+
+        </ul>
+
+        <h3 style="margin-top:1rem">Machine Learning &amp; AI</h3>
+        <ul class="projects">
+          <li>
             <strong><a href="https://ieeexplore.ieee.org/document/10101068" target="_blank" rel="noopener">Visualizing Chemistry Experiments using NLP and Computer Graphics (IEEE)</a></strong>
+            <span class="badge badge-pub">Published</span>
             <div class="small tech">Python · Flask · React</div>
-            <p>Presented at the 2nd International Conference for Innovation in Technology (INOCON), 2023. Tool transforms educational text into interactive visual tutorials using NLP and computer graphics.</p>
+            <p>Presented at the 2nd International Conference for Innovation in Technology (INOCON), 2023. Tool transforms educational chemistry text into interactive visual tutorials using NLP and computer graphics.</p>
           </li>
 
           <li>
@@ -172,22 +197,42 @@
           <div id="lang-heading" class="skill-heading">Languages</div>
           <div class="pills">
             <span class="pill">Python</span>
-            <span class="pill">C/C++</span>
+            <span class="pill">C/C++ (C++17)</span>
+            <span class="pill">Rust</span>
             <span class="pill">JavaScript</span>
             <span class="pill">TypeScript</span>
             <span class="pill">Go</span>
+            <span class="pill">SQL</span>
           </div>
         </div>
 
         <div class="skill-group" aria-labelledby="ml-heading">
           <div id="ml-heading" class="skill-heading">ML &amp; Data</div>
           <div class="pills">
+            <span class="pill">PyTorch</span>
+            <span class="pill">HuggingFace</span>
+            <span class="pill">LangChain</span>
+            <span class="pill">LangGraph</span>
+            <span class="pill">OpenAI APIs</span>
+            <span class="pill">Whisper</span>
+            <span class="pill">BM25</span>
+            <span class="pill">FAISS</span>
+            <span class="pill">Qdrant</span>
             <span class="pill">Pandas</span>
             <span class="pill">NumPy</span>
             <span class="pill">NLTK</span>
-            <span class="pill">HuggingFace</span>
-            <span class="pill">LangChain</span>
-            <span class="pill">PyTorch</span>
+          </div>
+        </div>
+
+        <div class="skill-group" aria-labelledby="storage-heading">
+          <div id="storage-heading" class="skill-heading">Storage &amp; Systems</div>
+          <div class="pills">
+            <span class="pill">LSM-trees</span>
+            <span class="pill">IVF Indexes</span>
+            <span class="pill">Object Storage (MinIO / S3)</span>
+            <span class="pill">Vector Databases</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">MongoDB</span>
           </div>
         </div>
 
@@ -195,11 +240,13 @@
           <div id="cloud-heading" class="skill-heading">Cloud &amp; Web</div>
           <div class="pills">
             <span class="pill">Azure</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
             <span class="pill">Flask</span>
             <span class="pill">FastAPI</span>
             <span class="pill">React</span>
-            <span class="pill">MongoDB</span>
-            <span class="pill">SQL</span>
+            <span class="pill">Streamlit</span>
+            <span class="pill">FFmpeg</span>
             <span class="pill">Git</span>
           </div>
         </div>
@@ -213,5 +260,19 @@
         <p class="small">Email: <a class="link" href="mailto:meenakshisuresh112@gmail.com">meenakshisuresh112@gmail.com</a></p>
         <p class="small">GitHub: <a class="link" href="https://github.com/Meenakshi-10">Meenakshi-10</a></p>
         <p class="small">LinkedIn: <a class="link" href="https://www.linkedin.com/in/meenakshi-suresh-6624996a/" target="_blank" rel="noopener">Meenakshi Suresh</a></p>
-        <p style="margin-top:.6rem*
-
+      </section>
+
+      <section class="card" style="margin-top:1rem">
+        <h2>Currently</h2>
+        <p class="small">📍 Urbana, Illinois</p>
+        <p class="small">🎓 MCS @ UIUC — expected May 2027</p>
+        <p class="small">👀 Open to internships &amp; research roles</p>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© 2026 Meenakshi Suresh · Built with care</p>
+  </footer>
+</body>
+</html>
